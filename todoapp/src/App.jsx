@@ -15,11 +15,11 @@ const App = () => {
     setTodo([...todo, { id: randomId, name: inputText }]);
 
     if (inputText && editbtn) {
-      setTodo(
-        todo.map((ele) =>
-          ele.id === selectedEditItemId ? { ...ele, name: inputText } : ele
-        )
+      const updatedElem = todo.map((ele) =>
+        ele.id === selectedEditItemId ? { ...ele, name: inputText } : ele
       );
+
+      setTodo(updatedElem);
     }
 
     setEditbtn(false);
