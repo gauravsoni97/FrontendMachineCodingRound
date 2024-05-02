@@ -31,6 +31,10 @@ const App = () => {
     setEditbtn(true);
     setSelectedEditItemId(eleId);
   };
+  const handleDelete = (eleId) => {
+    const deleteItem = todo.filter((ele) => ele.id !== eleId);
+    setTodo(deleteItem)
+  };
 
   return (
     <div>
@@ -73,6 +77,8 @@ const App = () => {
                   <button
                     type="button"
                     className=":-none text-white bg-red-700 hover:bg-red-800 :ring-4 :ring-red-300 font-medium rounded text-sm px-5 py-1  px-3  dark:bg-red-600 dark:hover:bg-red-700 me-3 dark::ring-red-900"
+                    onClick={() => handleDelete(ele.id)}
+
                   >
                     Del
                   </button>
