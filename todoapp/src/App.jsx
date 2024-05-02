@@ -21,7 +21,7 @@ const App = () => {
       </form>
       <center className="mt-10">
         <ul className="max-w-md ">
-          <li className="w-full px-4 py-2 rounded  flex  items-center justify-between mb-6  dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+          <li className="w-full py-2 rounded  flex  items-center justify-between mb-6  dark:bg-gray-800 dark:border-gray-700 dark:text-white">
             <div>Profile</div>
             <div className="flex items-center ">
               <button
