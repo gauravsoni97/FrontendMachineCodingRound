@@ -16,14 +16,12 @@ const App = () => {
 
     if (inputText && editbtn) {
       setTodo(
-        todo.map((ele) => {
-          if (ele.id === selectedEditItemId) {
-            return { ...ele, name: inputText };
-          }
-          return ele;
-        })
+        todo.map((ele) =>
+          ele.id === selectedEditItemId ? { ...ele, name: inputText } : ele
+        )
       );
     }
+
     setEditbtn(false);
   };
 
