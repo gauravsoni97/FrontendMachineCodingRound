@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
 const App = () => {
+  const [inputText, setInputText] = useState("");
+  const [todo, setTodo] = useState([]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setInputText("");
+    setTodo([...todo, inputText]);
+    console.log(todo);
+  };
+
   return (
     <div>
-      <form className="max-w-md mx-auto mt-4">
+      <form className="max-w-md mx-auto mt-4" onSubmit={handleSubmit}>
         <div className="relative">
           <input
             type="search"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
             className="block w-full p-4  text-sm text-gray-900  rounded-lg bg-gray-50  dark:bg-gray-700  dark:text-white"
             placeholder="todo..."
             required
@@ -21,24 +33,31 @@ const App = () => {
       </form>
       <center className="mt-10">
         <ul className="max-w-md ">
-          <li className="w-full py-2 rounded  flex  items-center justify-between mb-6  dark:bg-gray-800 dark:border-gray-700 dark:text-white">
-            <div className="ms-3 text-sm">Profile</div>
-            <div className="flex items-center ">
-              <button
-                type="button"
-                className=":-none text-white bg-green-700 hover:bg-green-800 :ring-4 :ring-green-300 font-medium rounded text-sm py-1  px-3    dark:bg-green-600 dark:hover:bg-green-700 dark::ring-green-800 me-2"
+          {todo.map((ele, ind) => {
+            return (
+              <li
+                key={ind}
+                className="w-full py-2 rounded  flex  items-center justify-between mb-6  dark:bg-gray-800 dark:border-gray-700 dark:text-white"
               >
-                Edit
-              </button>
+                <div className="ms-3 text-sm">{ele}</div>
+                <div className="flex items-center ">
+                  <button
+                    type="button"
+                    className=":-none text-white bg-green-700 hover:bg-green-800 :ring-4 :ring-green-300 font-medium rounded text-sm py-1  px-3    dark:bg-green-600 dark:hover:bg-green-700 dark::ring-green-800 me-2"
+                  >
+                    Edit
+                  </button>
 
-              <button
-                type="button"
-                className=":-none text-white bg-red-700 hover:bg-red-800 :ring-4 :ring-red-300 font-medium rounded text-sm px-5 py-1  px-3  dark:bg-red-600 dark:hover:bg-red-700 me-3 dark::ring-red-900"
-              >
-                Del
-              </button>
-            </div>
-          </li>
+                  <button
+                    type="button"
+                    className=":-none text-white bg-red-700 hover:bg-red-800 :ring-4 :ring-red-300 font-medium rounded text-sm px-5 py-1  px-3  dark:bg-red-600 dark:hover:bg-red-700 me-3 dark::ring-red-900"
+                  >
+                    Del
+                  </button>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </center>
     </div>
