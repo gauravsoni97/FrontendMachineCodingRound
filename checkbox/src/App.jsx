@@ -29,6 +29,11 @@ const App = () => {
     setItems(updatedItems);
   };
 
+  const handleDelete =(id)=>{
+    const updatedList = items.filter((ele)=> ele.id !== id)
+    setItems(updatedList)
+  }
+
   return (
     <div>
       <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
@@ -42,6 +47,7 @@ const App = () => {
             onChange={() => handleCheckedItem(ele.id)}
           />
           <label>{ele.value}</label>
+          {ele.isChecked &&  <button onClick={()=>handleDelete(ele.id)}>Del</button> }
         </div>
       ))}
     </div>
