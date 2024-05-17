@@ -1,0 +1,35 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parentOfBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.ListItem{
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 10px;
+  background-color: rgba(0, 255, 255, 0.671);
+  margin: 1rem 0;
+}
+.btnGroup{
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.ListBox {
+  border: 1px solid black;
+  border-radius: 10px;
+  min-height: 60vh;
+  min-width: 30vw;
+  padding: 0 1rem;
+}
